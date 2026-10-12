@@ -1,10 +1,13 @@
+import 'logger.dart';
 import 'student.dart';
 
 /// 成绩册：内部持有一组学生，构造时传入列表。
-class GradeBook {
+class GradeBook with Logger {
   final List<Student> _students;
 
-  GradeBook(List<Student> students) : _students = List.of(students);
+  GradeBook(List<Student> students) : _students = List.of(students) {
+    log('GradeBook 载入 ${_students.length} 名学生');
+  }
 
   List<Student> get students => List.unmodifiable(_students);
 
